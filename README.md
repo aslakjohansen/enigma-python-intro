@@ -1,5 +1,11 @@
 # Introduction to Python (for Enigma)
 
+*intro om pythons stigende popularitet*
+
+*dette webinar vil give en introduktion til sproget; hvornår er det relevant, hvad gør sproget unikt, og hvordan ser python kode egentlig ud?*
+
+Webinaret vil primært være eksempeldrevet.
+
 Webinaret dækker:
 - **to self** Intro omkring vigtigheden af at udsætte sig selv for nye sprog og følge med udviklingen
 - Den underliggende filosofi bag Python.
