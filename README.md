@@ -8,6 +8,7 @@ Webinaret vil primært være eksempeldrevet.
 
 Webinaret dækker:
 - **to self** Intro omkring vigtigheden af at udsætte sig selv for nye sprog og følge med udviklingen
+  - Java er én måde at programmere på. Man skal ikke programmere Java i Python. Man skal programmere Python i Python.
 - Den underliggende filosofi bag Python.
 - Positionering af python som programmeringssprog. Herunder:
   - Sammenligning med Java.
