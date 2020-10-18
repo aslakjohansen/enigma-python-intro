@@ -2,6 +2,8 @@
 
 *intro om pythons stigende popularitet*
 
+*pythons popularitet har gjort at det bliver brugt udenfor de problemområder som sproget oprindeligt var designet til at møde.*
+
 *dette webinar vil give en introduktion til sproget; hvornår er det relevant, hvad gør sproget unikt, og hvordan ser python kode egentlig ud?*
 
 Webinaret vil primært være eksempeldrevet.
