@@ -1,12 +1,6 @@
 # Introduction to Python (for Enigma)
 
-*intro om pythons stigende popularitet*
-
-*pythons popularitet har gjort at det bliver brugt udenfor de problemområder som sproget oprindeligt var designet til at møde.*
-
-*dette webinar vil give en introduktion til sproget; hvornår er det relevant, hvad gør sproget unikt, og hvordan ser python kode egentlig ud?*
-
-Webinaret vil primært være eksempeldrevet.
+Python har de sidste par år oplevet en voldsomt stigende popularitet. Så meget at det til tider bliver kaldt for det mest populære programmeringssprog, og så meget at det ofte ender med at blive brugt udenfor de problemområder som sproget oprindeligt var designet til. Så hvad er det der gør python til noget særligt? Hvad sker der når det bliver brugt udenfor de området det oprindeligt var designet til? Hvornår er python overhovedet relevant? I dette webinar gennemgår vi nogle af sprogets nøgleegenskaber i et forsøg på at besvare disse spørgsmål. Vi tager en eksempeldrevet tilgang der giver et indblik i hvordan python kode egentlig ser ud.
 
 Webinaret dækker:
 - **to self** Intro omkring vigtigheden af at udsætte sig selv for nye sprog og følge med udviklingen
