@@ -1,0 +1,196 @@
+#!/usr/bin/perl -w
+# (C) Aslak Johansen (see packages.asjo.dk for newest)
+
+use Term::ANSIColor;
+
+$debug = 1;
+
+%handlers = (
+	     'CC'       => "highlight-cc",
+	     'Dia'      => "dia",
+	     'Inkscape' => "inkscape",
+	     'Make'     => "highlight-makefile",
+	     'NesC'     => "highlight-nc",
+	     'Python'   => "highlight-py",
+	     'Rm'       => "rm",
+	     'Typedef'  => "extract-typedef",
+	     'XML'      => "highlight-xml",
+);
+$dia_format_cmd = "";
+
+# guard
+unless (scalar @ARGV == 2 || scalar @ARGV == 3) {
+    print "Syntax: generate-tex-includes (EPS|PDF) TEX_FILE OUTPUT_DIR\n";
+    print "        generate-tex-includes TEX_FILE OUTPUT_DIR\n";
+    exit;
+}
+
+if (scalar @ARGV == 2) {
+  $graphicsformat = "eps";
+  push(@infiles, $ARGV[0]);
+  $outdir = $ARGV[1];
+} elsif (scalar @ARGV == 3) {
+  $graphicsformat = lc($ARGV[0]);
+  push(@infiles, $ARGV[1]);
+  $outdir = $ARGV[2];
+} else {
+  print "Internal error passing command line arguments\n";
+  exit;
+}
+
+# handle different versions of dia
+if (`$handlers{'Dia'} --version` !~ m/0\.94/) {
+    $dia_format_cmd = "--filter=$graphicsformat";
+} else {
+    $dia_format_cmd = "--export-to-format=$graphicsformat";
+}
+
+# main loop
+while (scalar @infiles > 0) {
+    $infile = pop(@infiles);
+    print "processing " . $infile . " ...\n";
+
+    unless (-e $infile) {
+	    print "generate-includes>> " . $infile . ": File not found\n";
+	    next;
+    }
+
+    open(FH, $infile) or die "Unable to open $infile: $!\n";
+    $lines = join("", <FH>);
+    close(FH) or die "Unable to close $infile: $!\n";
+
+    while ($lines ne "") {
+	    if      ($lines =~ s/^\\(include|input)\{([^\}]*)\}//) {
+        $file = "doc/" . $2 . ".tex";
+	      if ($2 =~ m/\#/) {
+		      print "generate-includes>> " . $infile . ": Found inclusion " . $file . " but rejects it as a macro\n";
+	      } else {
+		      print "generate-includes>> " . $infile . ": Adding file " . $file . "to list\n";
+		      push(@infiles, $file);
+	      }
+	  } elsif ($lines =~ s/^\\includeCC(s|)\{([^\}]*)\}\{([^\}]*)\}//) {
+	    $source = $2 . "/" . $3;
+	    $target = $outdir . "/includes/" . $2 . "/" . $3;
+	    $cmd = $handlers{'CC'} .
+		         " --outstyle partial" .
+		         " --infile " . $source .
+		         " --outfile " . $target;
+	    handle_target($source, $target, $cmd);
+	    } elsif ($lines =~ s/^\\includeDIA\{([^\}]*)\}//) {
+	      $source =  "doc/figs/" . $1 . ".dia";
+	      $target =  $outdir . "/figs/" . $1 . "." . $graphicsformat;
+	      $cmd = $handlers{'Dia'} .
+	             " " . $source .
+		           " --export=" . $target . " " . $dia_format_cmd;
+	      handle_target($source, $target, $cmd);
+  	} elsif ($lines =~ s/^\\includeSVG(|fs)\{([^\}]*)\}//) {
+      $source =  "doc/figs/" . $2 . ".svg";
+	    $target =  $outdir . "/figs/" . $2 . "." . $graphicsformat;
+	    if ($graphicsformat eq "eps") {
+	      $outputformat = "-E";
+	    } else {
+	      $outputformat = "-A";
+	    }
+	    $cmd = $handlers{'Inkscape'} .
+		         " " . $source .
+		         " -z -C " . $outputformat . " " . $target;
+	    handle_target($source, $target, $cmd);
+	  } elsif ($lines =~ s/^\\includeMAKE(s|)\{([^\}]*)\}\{([^\}]*)\}//) {
+	    $source = $2 . "/" . $3;
+	    $target = $outdir . "/includes/" . $2 . "/" . $3;
+	    $cmd = $handlers{'Make'} .
+		         " --outstyle partial" .
+		         " --infile " . $source .
+		         " --outfile " . $target;
+	    handle_target($source, $target, $cmd);
+	  } elsif ($lines =~ s/^\\includeNC(s|)\{([^\}]*)\}\{([^\}]*)\}//) {
+	    $source = $2 . "/" . $3;
+	    $target = $outdir . "/includes/" . $2 . "/" . $3;
+	    $cmd = $handlers{'NesC'} .
+		         " --outstyle partial" .
+		         " --infile " . $source .
+		         " --outfile " . $target;
+	    handle_target($source, $target, $cmd);
+	  } elsif ($lines =~ s/^\\includePY(s|)\{([^\}]*)\}\{([^\}]*)\}//) {
+	    $source = $2 . "/" . $3;
+	    $target = $outdir . "/includes/" . $2 . "/" . $3;
+	    $cmd = $handlers{'Python'} .
+		         " --outstyle partial" .
+		         " --infile " . $source .
+		         " --outfile " . $target;
+	    handle_target($source, $target, $cmd);
+	  } elsif ($lines =~ s/^\\includeTYPEDEF(s|)\{([^\}]*)\}\{([^\}]*)\}\{([^\}]*)\}//) {
+	    $source = $2 . "/" . $3;
+	    $tmp = "/tmp/_" . $4;
+	    $target = $outdir . "/includes/" . $2 . "/" . $3 . "_" . $4;
+	    $cmd  = $handlers{'Typedef'} .
+	            " --infile " . $source .
+	            " --outfile " . $tmp .
+	            " --name " . $4 . " ; ";
+	    $cmd .= $handlers{'NesC'} .
+	            " --outstyle partial" .
+		          " --infile " . $tmp .
+		          " --outfile " . $target . " ; ";
+		  $cmd .= $handlers{'Rm'} . " " . $tmp;
+	    handle_target($source, $target, $cmd);
+	  } elsif ($lines =~ s/^\\includeXML(s|)\{([^\}]*)\}\{([^\}]*)\}//) {
+	    $source = $2 . "/" . $3;
+	    $target = $outdir . "/includes/" . $2 . "/" . $3;
+	    $cmd = $handlers{'XML'} .
+		         " --outstyle partial" .
+		         " --infile " . $source .
+		         " --outfile " . $target;
+	    handle_target($source, $target, $cmd);
+	  } else {
+	    $lines =~ s/^.//s;
+	  }
+  }
+}
+
+sub handle_target {
+    $source = shift @_;
+    $target = shift @_;
+    $update = shift @_;
+
+  print "UPDATE [$update]\n" if $debug;
+
+    unless (-e $source) {
+	    print "generate-includes>> Source file " . $source . " does not exist.\n";
+	    return;
+    }
+
+    # build directory structure
+    @parts = split(/\//, $target);
+    pop(@parts);
+    $dir = (shift @parts) . "/";
+    while (scalar @parts > 0) {
+	    $dir .= (shift @parts) . "/";
+	    if (!-e $dir) {
+	      print "generate-includes>> ", color("yellow"), "Creating", color("reset"), " $dir ...\n";
+	      mkdir $dir;
+	    }
+    }
+
+    if (-e $target) {
+	    (undef, undef, undef, undef, undef, undef, undef, undef,
+	     undef, $mtimeS, undef, undef, undef) = stat($source);
+	    (undef, undef, undef, undef, undef, undef, undef, undef,
+	     undef, $mtimeT, undef, undef, undef) = stat($target);
+
+	    if ($mtimeS > $mtimeT) {
+	      print "generate-includes>> Target " . $target . " ";
+	      print color("blue"), "out-of-date", color("reset");
+	      print ", updating ...\n";
+	      system($update);
+	    } else {
+	      print "generate-includes>> Target " . $target . " ";
+	      print color("green"), "up-of-date", color("reset");
+	      print ", leaving\n";
+	    }
+    } else {
+	    print "generate-includes>> Target " . $target . " ";
+	    print color("yellow"), "nonexisting", color("reset");
+  	  print ", creating ...\n";
+	    system($update);
+    }
+}

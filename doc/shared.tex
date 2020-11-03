@@ -1,0 +1,74 @@
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{xspace} % for xspace
+\usepackage{color} % for colored text
+\usepackage{color, colortbl} % for colored tables
+\usepackage{xcolor} % for colored cells in tables
+\usepackage{fancyvrb} % for different fontsize in verbatim
+\usepackage[T1]{fontenc} % for |
+
+\newcommand{\hlthing}[1]{\textcolor{orange}{#1}}
+\newcommand{\hlcomment}[1]{\textcolor{blue}{#1}}
+
+% sparql highlighting
+\usepackage[cache=false]{minted}            % code inclusion
+\newminted{sparql}{xleftmargin=1em,mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\scriptsize, linenos}
+
+\usepackage{pifont}%http://ctan.org/pkg/pifont
+% http://tex.stackexchange.com/questions/42619/x-mark-to-match-checkmark
+\newcommand{\cmark}{\text{\ding{51}}}
+\newcommand{\xmark}{\text{\ding{55}}}
+\newcommand{\change}{\text{\ding{46}}}
+
+\newcommand{\textdesc}[1]{\textit{\textbf{#1}}}
+\newcommand{\descitem}[1]{\item \textdesc{#1}}
+\newcommand{\includeSVG}[1]{
+\includegraphics[scale=1.0]{./figs/#1.pdf}
+}
+\newcommand{\includeSVGfs}[1]{
+\includegraphics[width=\paperwidth]{./figs/#1.pdf}
+}
+\newcommand{\includeBitmap}[2]{
+\includegraphics[width=#2]{./figs/#1}
+}
+
+% remove paragraph indent
+\setlength{\parindent}{0in}
+
+% remove footer
+\setbeamertemplate{footline}[page number]{} % gets rid of bottom navigation bars
+\setbeamertemplate{navigation symbols}{} % gets rid of navigation symbols
+\usecolortheme{default}
+\definecolor{structurecolor}{RGB}{21,66,129}
+\setbeamercolor{structure}{fg=structurecolor}
+\setbeamertemplate{footline}{}
+
+% PDF settings
+\hypersetup{
+pdftitle={\presentationtitle - \presentationsubtitle},
+pdfauthor={\presentationauthor},
+pdfsubject={\presentationsubject},
+pdfkeywords={Building}
+}
+
+\title{\presentationtitle \\ \scalebox{0.9}{\presentationsubtitle}}
+\author{
+\presentationauthor \hspace{1mm} \presentationauthoremail
+}
+\date{\presentationdate}
+\logo{\vspace{-0.5mm}\includegraphics[width=15mm]{figs/SDU.pdf}\hspace{0.5mm}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Intro
+\frame{\titlepage}
+\logo{}
+
