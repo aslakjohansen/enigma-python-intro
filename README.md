@@ -19,3 +19,9 @@ Webinaret dækker:
 - Pitfalls (runtime errors, global interpreter lock, mutable default arguments).
 - Next steps: numpy, sympy, asyncio, modul- og fortolkerversioner.
 
+## Dependencies
+
+```shell
+sudo apt-get install python3-nump python3-pandas python3-matplotlib
+```
+
