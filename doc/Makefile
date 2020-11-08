@@ -30,7 +30,7 @@ Enigma\ -\ Python\ Introduction\ Webinar\ Handouts.pdf: webinar_*.tex shared.tex
 	pdflatex -shell-escape webinar_handouts.tex
 	mv webinar_handouts.pdf Enigma\ -\ Python\ Introduction\ Webinar\ Handouts.pdf
 
-InnoSE\ 2019\ -\ Webinar\ Presentation.pdf: webinar_*.tex shared.tex includes.webinar.timestamp
+Enigma\ -\ Python\ Introduction\ Webinar\ Presentation.pdf: webinar_*.tex shared.tex includes.webinar.timestamp
 	pdflatex -shell-escape webinar_presentation.tex
 	pdflatex -shell-escape webinar_presentation.tex
 	mv webinar_presentation.pdf Enigma\ -\ Python\ Introduction\ Webinar\ Presentation.pdf
