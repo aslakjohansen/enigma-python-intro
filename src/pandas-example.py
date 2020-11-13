@@ -6,7 +6,7 @@ df = pd.read_csv('dkbirths2019.csv', names=['day', 'raw'])
 df['avgw'] = df['raw'].rolling(window=7, center=True).mean()
 df['avgm'] = df['raw'].rolling(window=30, center=True).mean()
 
-plt.figure(figsize=[15,10])
+plt.figure(figsize=[5,10])
 plt.xlabel('Time/[days]')
 plt.ylabel('Births/[#]')
 plt.scatter(df['day'], df['raw'],label='reported value')

@@ -2,6 +2,10 @@ TARGETS = \
 	Enigma\ -\ Python\ Introduction\ Webinar\ Handouts.pdf \
 	Enigma\ -\ Python\ Introduction\ Webinar\ Presentation.pdf \
 
+DEPS = \
+	../src/running-average.pdf \
+	../src/pandas-example.py \
+
 
 
 all: ${TARGETS}
@@ -22,6 +26,11 @@ includes:
 includes.webinar.timestamp: ../bin/generate-tex-includes includes webinar_*.tex shared.tex # figs/*.svg
 	cd .. ; bin/generate-tex-includes PDF doc/webinar_handouts.tex doc
 	touch includes.webinar.timestamp
+
+
+
+../src/running-average.pdf: ../src/pandas-example.py
+	cd ../src/ ; make running-average.pdf
 
 
 
