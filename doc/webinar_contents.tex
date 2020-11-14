@@ -162,14 +162,67 @@ True
     \end{center}
 \end{frame}
 
-\subsection{The Missing For-Loop}
+\subsection{Missing For-Loop}
+\defverbatim[colored]\contentForI{
+\begin{minted}{python}
+for line in lines:
+    print(line)
+\end{minted}
+}
+\defverbatim[colored]\contentForII{
+\begin{minted}{python}
+for i in range(len(lines)):
+    line = lines[i]
+    print(str(i)+': '+line)
+\end{minted}
+}
 \begin{frame}
-    \frametitle{The Missing For-Loop}
-    \vspace{5mm}
+    \frametitle{Missing For-Loop}
+    \vspace{3mm}
+    Python does not have a \textsl{for} loop.
     
-    \begin{itemize}
-      \item 
-    \end{itemize}
+    \pause
+    \vspace{3mm}
+    Python has a \textsl{foreach} loop.
+    \pause
+    
+    \vspace{6mm}
+    Iterating over a list:
+    \vspace{3mm}
+    \contentForI
+    \pause
+    
+    \vspace{6mm}
+    Iterating over a list with access to the index:
+    \vspace{3mm}
+    \contentForII
+\end{frame}
+
+\subsection{Generating Ranges of Integers}
+\defverbatim[colored]\contentRange{
+\begin{minted}{pycon}
+>>> range(5)
+range(0, 5)
+>>> list(range(5))
+[0, 1, 2, 3, 4]
+>>> list(range(1,5))
+[1, 2, 3, 4]
+>>> list(range(1,5,2))
+[1, 3]
+>>> for i in range(1,5,2):
+...     print(i)
+... 
+1
+3
+\end{minted}
+}
+\begin{frame}
+    \frametitle{Generating Ranges of Integers}
+    \vspace{3mm}
+    The \texttt{range} function returns a generator for a sequence of integers.
+    \pause
+    \vspace{3mm}
+    \contentRange
 \end{frame}
 
 \subsection{Branching}
