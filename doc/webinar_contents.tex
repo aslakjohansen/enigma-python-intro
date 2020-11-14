@@ -246,6 +246,33 @@ range(0, 5)
     \end{center}
 \end{frame}
 
+\subsection{Basic Operations}
+\defverbatim[colored]\contentStrings{
+\begin{minted}{pycon}
+>>> initial = ' once upon a time  '
+>>> initial
+' once upon a time  '
+>>> len(initial)
+19
+>>> stripped = initial.strip()
+>>> stripped
+'once upon a time'
+>>> words = stripped.split(' ')
+>>> words
+['once', 'upon', 'a', 'time']
+>>> words[1], stripped[1]
+('upon', 'n')
+>>> joined = '_'.join(words)
+>>> joined
+'once_upon_a_time'
+\end{minted}
+}
+\begin{frame}
+    \frametitle{\textbf{Strings} Basic Operations}
+    \vspace{0mm}
+    \contentStrings
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Files
 
