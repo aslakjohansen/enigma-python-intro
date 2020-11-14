@@ -184,6 +184,73 @@ True
     \end{center}
 \end{frame}
 
+\defverbatim[colored]\contentFilesI{
+\begin{minted}{python}
+fo = open(filename, mode)
+# do something with 'fo'
+fo.close()
+\end{minted}
+}
+\defverbatim[colored]\contentFilesIr{
+\begin{minted}{python}
+lines = fo.readlines()
+\end{minted}
+}
+\defverbatim[colored]\contentFilesIw{
+\begin{minted}{python}
+fo.writelines(lines)
+\end{minted}
+}
+\begin{frame}
+    \frametitle{\textbf{Files} Basics}
+    \vspace{0mm}
+    \contentFilesI
+    \pause
+    \vspace{3mm}
+    Modes:
+    \begin{itemize}
+        \item \texttt{'r'} read mode \textbf{(default $\Rightarrow$ may be omitted)}
+        \item \texttt{'w'} write mode (clears file on open)
+        \item \texttt{'a'} append mode (continues at end of file)
+    \end{itemize}
+    \pause
+    \vspace{3mm}
+    Read using:
+    \contentFilesIr
+    \pause
+    \vspace{3mm}
+    Write using:
+    \contentFilesIw
+\end{frame}
+
+\defverbatim[colored]\contentFilesII{
+\begin{minted}{python}
+with open(input_filename) as fo:
+    lines = fo.readlines()
+
+with open(output_filename, 'w') as fo:
+    fo.writelines(lines)
+\end{minted}
+}
+\begin{frame}
+    \frametitle{\textbf{Files} Implicit Closing of File Objects}
+    \vspace{0mm}
+    \contentFilesII
+\end{frame}
+
+\defverbatim[colored]\contentFilesIII{
+\begin{minted}{python}
+with open(filename) as fo:
+    for line in fo:
+        print(line)
+\end{minted}
+}
+\begin{frame}
+    \frametitle{\textbf{Files} Reading from a Stream of Lines}
+    \vspace{0mm}
+    \contentFilesIII
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Marshalling and JSON
 
