@@ -98,6 +98,49 @@
     \end{itemize}
 \end{frame}
 
+\defverbatim[colored]\contentTypeIntrospectionI{
+\begin{minted}{pycon}
+>>> t = type(True)
+>>> t
+<class 'bool'>
+>>> type(t)
+<class 'type'>
+>>> type(bool)
+<class 'type'>
+>>> t == bool
+True
+\end{minted}
+}
+\defverbatim[colored]\contentTypeIntrospectionII{
+\begin{minted}{pycon}
+>>> def fun(var): return var
+... 
+>>> type(fun)
+<class 'function'>
+>>> f = fun
+>>> type(f)
+<class 'function'>
+>>> f(1)
+1
+>>> g = lambda a: a
+>>> type(g)
+<class 'function'>
+>>> g(1)
+1
+\end{minted}
+}
+\subsection{Type Introspection}
+\begin{frame}
+    \frametitle{Type Introspection}
+    \vspace{0mm}
+    \contentTypeIntrospectionI
+\end{frame}
+\begin{frame}
+    \frametitle{Type Introspection}
+    \vspace{0mm}
+    \contentTypeIntrospectionII
+\end{frame}
+
 \subsection{Object-Orientation}
 \begin{frame}
     \frametitle{Object-Orientation}
