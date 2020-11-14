@@ -61,8 +61,17 @@
     \frametitle{Bad Matches}
     \vspace{5mm}
     
+    \pause
     \begin{itemize}
-      \item 
+      \item The use of a global interpreter lock (GIL) makes the language a bad fit for any problem that would benefit from concurrency.
+      \pause
+      \item The lack of "compile-time" type checking/safely makes the language a bad fit for any problem that requires robustness or is long-running.
+      \pause
+      \item The level of abstraction makes python a bad fit for any computationally heavy operations.
+      \pause
+          \begin{itemize}
+              \item \textbf{Note:} Python code can call C or Fortran code which can do the heavy lifting. This is what \texttt{numpy} does.
+          \end{itemize}
     \end{itemize}
 \end{frame}
 
