@@ -459,6 +459,8 @@ else:
 [3, 4]
 >>> l[:4]
 [1, 2, 3, 4]
+>>> 4 in l, 42 in l
+(True, False)
 \end{minted}
 }
 \begin{frame}
@@ -476,6 +478,47 @@ else:
     \begin{center}
         \Huge{Part 5:\\Dictionaries}
     \end{center}
+\end{frame}
+
+\defverbatim[colored]\contentDict{
+\begin{minted}[fontsize=\tiny]{pycon}
+>>> {}
+{}
+>>> d = {'jan': 1, 'feb': 2, 'mar': 3}
+>>> d
+{'jan': 1, 'feb': 2, 'mar': 3}
+>>> d['jan']
+1
+>>> d['apr'] = 4
+>>> d
+{'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4}
+>>> d['list'] = [1,2,3]
+>>> d
+{'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'list': [1, 2, 3]}
+>>> 'jan' in d
+True
+>>> 'may' in d
+False
+>>> d.keys()
+dict_keys(['jan', 'feb', 'mar', 'apr', 'list'])
+>>> list(d.keys())
+['jan', 'feb', 'mar', 'apr', 'list']
+>>> for key in d: print(key)
+... 
+jan
+feb
+mar
+apr
+list
+>>> del(d['feb'])
+>>> d
+{'jan': 1, 'mar': 3, 'apr': 4, 'list': [1, 2, 3]}
+\end{minted}
+}
+\begin{frame}
+    \frametitle{Dictionary Operations}
+    \vspace{0mm}
+    \contentDict
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
