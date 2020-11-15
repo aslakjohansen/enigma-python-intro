@@ -38,12 +38,13 @@
     \vspace{5mm}
     
     \begin{itemize}
-      \descitem{Interpreted}
-      \descitem{Garbage Collected}
-      \descitem{Dynamically Typed}
-      \descitem{High-Level}
-      \descitem{Late Binding}
-      \descitem{}
+      \descitem{Interpreted} interpreter + code $\rightarrow$ execution \\
+        Java: compiler + code $\rightarrow$ bytecode; bytecode + interpreter $\rightarrow$ execution \\
+        C: compiler + code $\rightarrow$ code $\rightarrow$ execution
+      \descitem{Garbage Collected} Makes use of automatic memory management (no need to keep tract of when to \textsl{free} individual allocations).
+      \descitem{Dynamically Typed} Type safety is verified at runtime.
+      \descitem{Late Binding} Names are looked up at runtime.
+      \descitem{High-Level} Focus is on serving as a good language for abstract (as in: machine distant) operations.
     \end{itemize}
 \end{frame}
 
