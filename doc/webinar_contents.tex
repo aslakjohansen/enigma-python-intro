@@ -178,14 +178,26 @@ print('%s -> %s' % (input_filename, output_filename))
     \end{itemize}
 \end{frame}
 
-\subsection{Boolean Operations}
+\subsection{Boolean Operators}
+\defverbatim[colored]\contentBoolesn{
+\begin{minted}{python}
+if page < pagecount and good_book:
+    print('Enjoy!')
+
+if not finished:
+    print('Continue ...')
+
+if finished or not started:
+    print('Not much is happening :-(')
+\end{minted}
+}
 \begin{frame}
-    \frametitle{Boolean Operations}
+    \frametitle{Boolean Operators}
     \vspace{5mm}
+    In python boolean operators are spelled out.
     
-    \begin{itemize}
-      \item
-    \end{itemize}
+    \vspace{5mm}
+    \contentBoolesn
 \end{frame}
 
 \subsection{String Operations}
