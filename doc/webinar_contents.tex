@@ -91,6 +91,59 @@
     \end{center}
 \end{frame}
 
+\subsection{Imports}
+\defverbatim[colored]\contentImports{
+\begin{minted}{python}
+import os
+from sys import argv
+from sys import exit as bye
+
+bye()
+\end{minted}
+}
+\begin{frame}
+    \frametitle{Imports}
+    \vspace{3mm}
+    \contentImports
+\end{frame}
+
+\subsection{First Steps}
+\defverbatim[colored]\contentFirstSteps{
+\begin{minted}{python}
+#!/usr/bin/env python3
+import sys
+
+print("Hello, world!")
+sys.exit() # this is really not necessary
+\end{minted}
+}
+\begin{frame}
+    \frametitle{First Steps}
+    \vspace{3mm}
+    \contentFirstSteps
+\end{frame}
+
+\subsection{Command-Line Arguments}
+\defverbatim[colored]\contentCLA{
+\begin{minted}{python}
+from sys import argv, exit
+
+if len(argv) != 3:
+    print('Syntax: %s INPUT_FILENAME OUTPUT_FILENAME' % argv[0])
+    print('        %s log.txt analysis.csv' % argv[0])
+    exit(1)
+input_filename  = argv[1]
+output_filename = argv[2]
+
+print('%s -> %s' % (input_filename, output_filename))
+\end{minted}
+}
+\begin{frame}
+    \frametitle{Command-Line Arguments}
+    \vspace{3mm}
+    \contentCLA
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Basic Datatypes and -Structures
 
