@@ -231,6 +231,44 @@ if finished or not started:
     \contentStrings
 \end{frame}
 
+
+\subsection{Regular Expressions}
+\defverbatim[colored]\contentRegexp{
+\begin{minted}[fontsize=\footnotesize]{python}
+import re
+
+urls = [
+    'https://www.gutenberg.org/files/11/11-h/11-h.htm',
+    'https://golang.org',
+    'http://www.google.com:80/',
+    'definitely not a URL',
+]
+pattern = re.compile('([^:]+)://([^:/]+)(:\d+|)(/.*|)')
+
+for url in urls:
+    mo = pattern.match(url)
+    
+    if mo:
+        print('proto="%s" domain="%s" port="%s" path="%s"' %
+              (mo.group(1), mo.group(2), mo.group(3), mo.group(4)))
+\end{minted}
+}
+\begin{frame}[fragile]
+    \frametitle{Regular Expressions}
+    \vspace{0mm}
+    \contentRegexp
+    
+    \vspace{0mm}
+    \pause
+    {\footnotesize
+    \begin{verbatim}
+proto="https" domain="www.gutenberg.org" port="" path="/files/11/11-h/11-h.htm"
+proto="https" domain="golang.org" port="" path=""
+proto="http" domain="www.google.com" port=":80" path="/"
+    \end{verbatim}
+    }
+\end{frame}
+
 \defverbatim[colored]\contentTypeIntrospectionI{
 \begin{minted}{pycon}
 >>> t = type(True)
