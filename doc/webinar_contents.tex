@@ -201,13 +201,34 @@ if finished or not started:
 \end{frame}
 
 \subsection{String Operations}
+\defverbatim[colored]\contentStrings{
+\begin{minted}[fontsize=\tiny]{pycon}
+>>> s1 = "Alice was beginning to get very tired of sitting by her sister on the bank"
+>>> s1
+'Alice was beginning to get very tired of sitting by her sister on the bank'
+>>> s2 = 'and of having nothing to do'
+>>> s2
+'and of having nothing to do'
+>>> s = s1+", "+s2
+>>> s
+'Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do'
+>>> s = s.replace(',', '')
+>>> s
+'Alice was beginning to get very tired of sitting by her sister on the bank and of having nothing to do'
+>>> words = s.split(' ')
+>>> words
+['Alice', 'was', 'beginning', 'to', 'get', 'very', 'tired', 'of', 'sitting', 'by', 'her', 'sister', 'on', 'the',
+'bank', 'and', 'of', 'having', 'nothing', 'to', 'do']
+>>> '%d: %s' % (3, 'March')
+'3: March'
+>>> '_'.join(words)
+'Alice_was_beginning_to_get_very_tired_of_sitting_by_her_sister_on_the_bank_and_of_having_nothing_to_do'
+\end{minted}
+}
 \begin{frame}
     \frametitle{String Operations}
     \vspace{5mm}
-    
-    \begin{itemize}
-      \item
-    \end{itemize}
+    \contentStrings
 \end{frame}
 
 \defverbatim[colored]\contentTypeIntrospectionI{
