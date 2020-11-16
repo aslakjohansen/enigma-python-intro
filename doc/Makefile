@@ -4,6 +4,7 @@ TARGETS = \
 
 DEPS = \
 	../src/running-average.pdf \
+	../src/running-average.pdf \
 	../src/pandas-example.py \
 
 
