@@ -657,15 +657,33 @@ with open(filename) as fo:
     \contentFilesIII
 \end{frame}
 
-\subsection{Listing Directories}
+\subsection{Directories}
 \defverbatim[colored]\contentListdir{
-\begin{minted}{python}
-
+\begin{minted}[fontsize=\small]{pycon}
+>>> from os import listdir, path
+>>> listdir('/')
+['var', 'etc', 'run', 'proc', 'media', 'home', 'sbin', 'srv', 'lost+found',
+'boot', 'tmp', 'sys', 'lib32', 'bin', 'dev', 'snap', 'cdrom', 'libx32',
+'root', 'usr', 'lib', 'lib64', 'opt', 'mnt']
+>>> listdir('/'.join(['', 'usr']))
+['src', 'local', 'sbin', 'libexec', 'share', 'lib32', 'bin', 'libx32', 'lib',
+'lib64', 'include', 'games']
+>>> path.isfile('/etc')
+False
+>>> path.isdir('/etc')
+True
+>>> path.exists('/etc')
+True
+>>> path.islink('/etc')
+False
+>>> import os
+>>> os.mkdir('/tmp/dir')
+>>> os.unlink('/tmp/somefile')
 \end{minted}
 }
 \begin{frame}
-    \frametitle{\textbf{Files:} Listing Directories}
-    \vspace{0mm}
+    \frametitle{\textbf{Files:} Directories}
+    \vspace{-1mm}
     \contentListdir
 \end{frame}
 
