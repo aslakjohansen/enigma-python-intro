@@ -8,6 +8,7 @@ DEPS = \
 	../src/running-average.pdf \
 	../src/running-average.pdf \
 	../src/sympyexample.py \
+	../src/webserver.py \
 
 
 

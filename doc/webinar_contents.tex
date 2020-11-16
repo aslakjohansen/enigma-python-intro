@@ -796,13 +796,17 @@ i=9 j=0 => result=286.470000
 \end{frame}
 
 \subsection{AsyncIO}
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{AsyncIO}
-    \vspace{5mm}
-    
-    \begin{itemize}
-      \item 
-    \end{itemize}
+    \vspace{-2mm}
+    \inputminted[fontsize=\tiny]{python3}{../src/webserver.py}
+    \vspace{2mm}
+    {\tiny
+    \begin{verbatim}
+$ curl localhost:8080/etc/hostname
+thera
+    \end{verbatim}
+    }
 \end{frame}
 
 \subsection{Cairo}
