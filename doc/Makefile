@@ -7,6 +7,7 @@ DEPS = \
 	../src/pandas-example.py \
 	../src/running-average.pdf \
 	../src/running-average.pdf \
+	../src/sympyexample.py \
 
 
 
