@@ -22,6 +22,6 @@ Webinaret dækker:
 ## Dependencies
 
 ```shell
-sudo apt-get install python3-nump python3-pandas python3-matplotlib python3-sympy
+sudo apt-get install python3-nump python3-pandas python3-matplotlib python3-sympy python3-cairo
 ```
 
