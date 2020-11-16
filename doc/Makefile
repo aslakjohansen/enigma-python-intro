@@ -3,6 +3,7 @@ TARGETS = \
 	Enigma\ -\ Python\ Introduction\ Webinar\ Presentation.pdf \
 
 DEPS = \
+	../src/cairoexample.pdf \
 	../src/running-average.pdf \
 	../src/running-average.pdf \
 	../src/pandas-example.py \
@@ -29,6 +30,9 @@ includes.webinar.timestamp: ../bin/generate-tex-includes includes webinar_*.tex 
 	touch includes.webinar.timestamp
 
 
+
+../src/cairoexample.pdf: ../src/cairoexample.py
+	cd ../src/ ; make cairoexample.pdf
 
 ../src/running-average.pdf: ../src/pandas-example.py
 	cd ../src/ ; make running-average.pdf
