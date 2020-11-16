@@ -4,9 +4,9 @@ TARGETS = \
 
 DEPS = \
 	../src/cairoexample.pdf \
-	../src/running-average.pdf \
-	../src/running-average.pdf \
 	../src/pandas-example.py \
+	../src/running-average.pdf \
+	../src/running-average.pdf \
 
 
 
