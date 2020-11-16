@@ -745,13 +745,29 @@ with open(filename) as fo:
 \end{frame}
 
 \subsection{SymPy}
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{SymPy}
+    \vspace{2mm}
+    \inputminted[fontsize=\tiny]{python}{../src/sympyexample.py}
     \vspace{5mm}
     
-    \begin{itemize}
-      \item 
-    \end{itemize}
+    {\tiny
+    \begin{verbatim}
+Please enter an expression over i and j: 3*i*i+4.83*i+j 
+expr=3*i**2 + 4.83*i + j
+diff(expr, i)=6*i + 4.83
+i=0 j=0 => result=0.000000
+i=1 j=1 => result=8.830000
+i=2 j=2 => result=23.660000
+i=3 j=0 => result=41.490000
+i=4 j=1 => result=68.320000
+i=5 j=2 => result=101.150000
+i=6 j=0 => result=136.980000
+i=7 j=1 => result=181.810000
+i=8 j=2 => result=232.640000
+i=9 j=0 => result=286.470000
+    \end{verbatim}
+    }
 \end{frame}
 
 \subsection{NumPy}
