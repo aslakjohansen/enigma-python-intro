@@ -851,13 +851,17 @@ $ python3 mutabledefaults.py
 \end{frame}
 
 \subsection{Scope and Globals}
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{Scope and Globals}
+    \vspace{-2mm}
+    \inputminted[fontsize=\normalsize]{python}{../src/globals.py}
+    \pause
     \vspace{5mm}
-    
-    \begin{itemize}
-      \item 
-    \end{itemize}
+    \begin{verbatim}
+$ python3 globals.py 
+-1 -1
+42 -1
+    \end{verbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
