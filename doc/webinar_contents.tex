@@ -192,8 +192,8 @@ print('%s -> %s' % (input_filename, output_filename))
 if page < pagecount and good_book:
     print('Enjoy!')
 
-if not finished:
-    print('Continue ...')
+while not there:
+    print('Are we there yet?')
 
 if finished or not started:
     print('Not much is happening :-(')
@@ -679,7 +679,7 @@ with open(filename) as fo:
 ['var', 'etc', 'run', 'proc', 'media', 'home', 'sbin', 'srv', 'lost+found',
 'boot', 'tmp', 'sys', 'lib32', 'bin', 'dev', 'snap', 'cdrom', 'libx32',
 'root', 'usr', 'lib', 'lib64', 'opt', 'mnt']
->>> listdir('/'.join(['', 'usr']))
+>>> listdir(path.sep.join(['', 'usr']))
 ['src', 'local', 'sbin', 'libexec', 'share', 'lib32', 'bin', 'libx32', 'lib',
 'lib64', 'include', 'games']
 >>> path.isfile('/etc')
