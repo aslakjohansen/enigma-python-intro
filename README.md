@@ -21,7 +21,7 @@ Webinaret dækker:
 
 ## Repository Layout
 
-- Presentation under [doc](doc)
+- Presentation under [doc](doc) (run `make` to build)
 - Executable code examples under [src](src)
 - A script for building dependencies on demand under [bin](bin)
 
