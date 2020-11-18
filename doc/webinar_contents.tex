@@ -239,6 +239,32 @@ if finished or not started:
     \contentStrings
 \end{frame}
 
+\defverbatim[colored]\contentFunction{
+\begin{minted}{python}
+def add (a, b, c=0):
+    return a+b+c
+
+print(add(1,2,3))
+print(add(1,2))
+
+a = add
+print(a(1,2))
+\end{minted}
+}
+\subsection{Functions}
+\begin{frame}[fragile]
+    \frametitle{Functions}
+    \vspace{-2mm}
+    \contentFunction
+    \pause
+    \vspace{5mm}
+    \begin{verbatim}
+6
+3
+3
+    \end{verbatim}
+\end{frame}
+
 \defverbatim[colored]\contentTypeIntrospectionI{
 \begin{minted}{pycon}
 >>> t = type(True)
