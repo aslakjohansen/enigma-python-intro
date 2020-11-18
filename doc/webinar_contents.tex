@@ -339,6 +339,30 @@ True
     \end{center}
 \end{frame}
 
+\subsection{Branching}
+\defverbatim[colored]\contentBranching{
+\begin{minted}{python}
+if len(lines)>0 and len(line[0])>0 and line[0][0]=='#':
+    print('First line is a coment')
+
+parts = line.split(' ')
+command = parts[0]
+if   command=='load':
+    load_file()
+elif command=='save':
+    save_file()
+elif command=='quit':
+    quit()
+else:
+    print('Unknown command "'+command+'"')
+\end{minted}
+}
+\begin{frame}
+    \frametitle{Branching}
+    \vspace{3mm}
+    \contentBranching
+\end{frame}
+
 \subsection{Missing For-Loop}
 \defverbatim[colored]\contentForI{
 \begin{minted}{python}
@@ -400,30 +424,6 @@ range(0, 5)
     \pause
     \vspace{3mm}
     \contentRange
-\end{frame}
-
-\subsection{Branching}
-\defverbatim[colored]\contentBranching{
-\begin{minted}{python}
-if len(lines)>0 and len(line[0])>0 and line[0][0]=='#':
-    print('First line is a coment')
-
-parts = line.split(' ')
-command = parts[0]
-if   command=='load':
-    load_file()
-elif command=='save':
-    save_file()
-elif command=='quit':
-    quit()
-else:
-    print('Unknown command "'+command+'"')
-\end{minted}
-}
-\begin{frame}
-    \frametitle{Branching}
-    \vspace{3mm}
-    \contentBranching
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
