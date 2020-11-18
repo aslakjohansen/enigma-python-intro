@@ -675,16 +675,26 @@ False
     \contentListdir
 \end{frame}
 
-\subsection{Interacting with Processes}
-\defverbatim[colored]\contentProcess{
-\begin{minted}[fontsize=\small]{python}
-
-\end{minted}
-}
-\begin{frame}
-    \frametitle{\textbf{Files:} Interacting with Processes}
+\subsection{Process Interaction}
+\begin{frame}[fragile]
+    \frametitle{\textbf{Files:} Process Interaction}
     \vspace{0mm}
-    \contentProcess
+    \inputminted[fontsize=\footnotesize]{python}{../src/processexample.py}
+    \pause
+    \vspace{5mm}
+    {\footnotesize
+    \begin{verbatim}
+$ python3 processexample.py
+bin
+boot
+cdrom
+dev
+etc
+home
+lib
+...
+    \end{verbatim}
+    }
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
