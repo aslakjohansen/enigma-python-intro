@@ -19,6 +19,12 @@ Webinaret dækker:
 - Pitfalls (runtime errors, global interpreter lock, mutable default arguments).
 - Next steps: numpy, sympy, asyncio, modul- og fortolkerversioner.
 
+## Repository Layout
+
+- Presentation under [doc](doc)
+- Executable code examples under [src](src)
+- A script for building dependencies on demand under [bin](bin)
+
 ## Dependencies
 
 ```shell
