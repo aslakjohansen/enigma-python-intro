@@ -708,6 +708,40 @@ lib
     \end{center}
 \end{frame}
 
+\defverbatim[colored]\contentJSON{
+\begin{minted}[fontsize=\tiny]{pycon}
+>>> import json
+>>> data = {'a': 1, 'b': [1,2,3], 'c': 'abc'}
+>>> data
+{'a': 1, 'b': [1, 2, 3], 'c': 'abc'}
+
+>>> json.dumps(data)
+'{"a": 1, "b": [1, 2, 3], "c": "abc"}'
+>>> s = json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
+>>> s
+'{\n    "a": 1,\n    "b": [\n        1,\n        2,\n        3\n    ],\n    "c": "abc"\n}'
+>>> print(s)
+{
+    "a": 1,
+    "b": [
+        1,
+        2,
+        3
+    ],
+    "c": "abc"
+}
+
+>>> data2 = json.loads(s)
+>>> data2
+{'a': 1, 'b': [1, 2, 3], 'c': 'abc'}
+\end{minted}
+}
+\begin{frame}
+    \frametitle{Marshalling and JSON}
+    \vspace{0mm}
+    \contentJSON
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Higher-Order Functions
 
@@ -717,6 +751,29 @@ lib
     \begin{center}
         \Huge{Part 9:\\Higher-Order Functions}
     \end{center}
+\end{frame}
+
+\defverbatim[colored]\contentLambda{
+\begin{minted}[fontsize=\normalsize]{pycon}
+>>> l = [-17,2,5,-4,4,7,-3,-1,9,1]
+>>> incr = lambda v: v+1
+>>> map(incr, l)
+<map object at 0x7f33c8440b20>
+>>> list(map(incr, l))
+[-16, 3, 6, -3, 5, 8, -2, 0, 10, 2]
+>>> pos = lambda v: v>=0
+>>> filter(pos, l)
+<filter object at 0x7f33c8440b20>
+>>> list(filter(pos, l))
+[2, 5, 4, 7, 9, 1]
+>>> list(map(incr, filter(pos, l)))
+[3, 6, 5, 8, 10, 2]
+\end{minted}
+}
+\begin{frame}
+    \frametitle{Higher-Order Functions}
+    \vspace{0mm}
+    \contentLambda
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
