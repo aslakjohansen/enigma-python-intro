@@ -787,6 +787,44 @@ lib
     \end{center}
 \end{frame}
 
+\defverbatim[colored]\contentModulesI{
+\begin{minted}[fontsize=\normalsize]{python3}
+def add (a, b):
+    return a+b
+\end{minted}
+}
+\defverbatim[colored]\contentModulesII{
+\begin{minted}[fontsize=\normalsize]{python}
+import awesome
+print(awesome.add(1,2))
+\end{minted}
+}
+\begin{frame}[fragile]
+    \frametitle{Working in Modules}
+    \vspace{0mm}
+    \begin{center}
+      \texttt{awesome.py} (the module)
+    \end{center}
+    \contentModulesI
+    \pause
+    
+    \vspace{5mm}
+    \begin{center}
+      \texttt{main.py} (the consumer of the module)
+    \end{center}
+    \contentModulesII
+    \pause
+    
+    \vspace{5mm}
+    \begin{center}
+      Result of execution
+    \end{center}
+    \begin{verbatim}
+$ python3 main.py
+3
+    \end{verbatim}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Pitfalls
 
