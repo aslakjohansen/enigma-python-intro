@@ -837,13 +837,17 @@ $ python3 main.py
 \end{frame}
 
 \subsection{Mutable Default Arguments}
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{Mutable Default Arguments}
+    \vspace{3mm}
+    \inputminted[fontsize=\normalsize]{python}{../src/mutabledefaults.py}
+    \pause
     \vspace{5mm}
-    
-    \begin{itemize}
-      \item 
-    \end{itemize}
+    \begin{verbatim}
+$ python3 mutabledefaults.py 
+[2]
+[3, 2]
+    \end{verbatim}
 \end{frame}
 
 \subsection{Scope and Globals}
